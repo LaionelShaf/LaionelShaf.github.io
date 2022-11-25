@@ -1,0 +1,85 @@
+*{
+	padding: 0;
+	margin: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body{
+	background-color: #E8DFCA;
+}
+.main{
+	background-color: #F5EFE6;
+	display: flex;
+	width: 95%;
+	max-width: 1000px;
+	margin: auto;
+	box-shadow: 0 0 10px 1px rgba(0,0,0,0.3);
+	flex-wrap: wrap;/*Позволяет расположить объекты в несколько строчек*/
+}
+/*Предворительная разметка*/
+.item{
+	max-width: 490px;
+	max-height: 265px;
+	width: calc(90vw - 10px);/*Высчитываем ширину картинки*/
+	height: calc(95vw / 2 - 10px);/*Высчитываем высоту картинки*/
+	background-color: white;
+	/*margin: 5px;*/
+	background-image: center;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+.heading{
+	font-size: 48px;
+	text-align: center;/* выравнивание*/
+	width: 100%;
+	padding: 10px 0;/*сверху снизу и справа слева*/
+	font-family: 'Bad Script', cursive;
+}
+.img_link{
+	display: block;/*блочное отображение картинки-ссылки*/
+	opacity: 0.85;
+	transition: opacity 1s ease,transform 0.2s/*задержка для увеличения*/ ;/* задержка. функции: opacity 1 linear-яркость линейно
+	opacity 1 ease -сначала медленно потом быстро
+	*/
+	transition: box-shadow 0.3s ease;
+	margin: 5px;
+}
+.link-report{
+	font-size: 35px;
+	text-align: center;
+	padding: 50px 0;
+	
+}
+.author{
+	text-decoration: none;/*убераем подчеркивание */
+	color: #8B4513;
+	
+}
+.author:hover{
+	border-bottom: 2px solid transparent;
+	transition: 3s;
+}
+
+@media all and (max-width: 768px) {/*коректировка сайта для устройств с шириной до 768px*/
+	.item{
+		max-width: initial;/*подстраевается под устройство*/
+		max-height: initial;
+		width: 95vw;/*vw-процент ширины экрана*/
+		height: calc(95vw / 16 * 9);
+	}
+	.img_link{
+		margin: 5px 0;
+		opacity: 1;
+	}
+}
+
+@media all and (min-width: 1200px) {
+	.img_link:hover{
+		opacity: 1;/*прозрачноссть (hover-класс который есть хоть мы и не прописывали, работает при наведении мышкой)*/
+		transform: scale(1.1) rotate(-5deg);/*увеличиваем размер при наведении на 1.1 и поворачиваем на 5 град*/
+		z-index: 10;/*выбранная картинка ложится поверх остальных на 10 выше*/
+		box-shadow: 0 0 100px 30px rgba(0, 0, 0, 0.4);
+	}
+} 
